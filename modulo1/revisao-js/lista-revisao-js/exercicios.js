@@ -56,8 +56,14 @@ console.log(retornaMaiorNumero)
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+    const objetoDosNumero = {
+        maiorNumero: Math.max(num1, num2),
+        maiorDivisivelPorMenor: Math.max(num1, num2) % Math.min(num1,num2)=== 0 ,
+        diferenca : Math.abs(num1 - num2),
+    }
+    return objetoDosNumero
 }
+console.log(retornaObjetoEntreDoisNumeros)
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
