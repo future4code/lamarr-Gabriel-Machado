@@ -36,8 +36,8 @@ console.log(retornaNumerosPares);
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
     let numerosAoQuadrado = []
-    for (let i = 0; i < array.length; i++){
-        if(array[i] % 2 === 0 ){
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
             let numeroAoQuadrado = array[i] ** 2
             numerosAoQuadrado.push(numeroAoQuadrado)
 
@@ -58,8 +58,8 @@ console.log(retornaMaiorNumero)
 function retornaObjetoEntreDoisNumeros(num1, num2) {
     const objetoDosNumero = {
         maiorNumero: Math.max(num1, num2),
-        maiorDivisivelPorMenor: Math.max(num1, num2) % Math.min(num1,num2)=== 0 ,
-        diferenca : Math.abs(num1 - num2),
+        maiorDivisivelPorMenor: Math.max(num1, num2) % Math.min(num1, num2) === 0,
+        diferenca: Math.abs(num1 - num2),
     }
     return objetoDosNumero
 }
@@ -69,7 +69,7 @@ console.log(retornaObjetoEntreDoisNumeros)
 function retornaNPrimeirosPares(n) {
     let numerosPares = [];
     for (let i = 0; numerosPares.length < n; i++) {
-        if (i % 2 == 0) {
+        if (i % 2 === 0) {
             numerosPares.push(i);
         }
     }
@@ -78,9 +78,9 @@ function retornaNPrimeirosPares(n) {
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-    if (ladoA === ladoB && ladoB === ladoC && ladoA === ladoC){
+    if (ladoA === ladoB && ladoB === ladoC && ladoA === ladoC) {
         return `Equilátero`
-    } else if (ladoA === ladoB || ladoB === ladoC || ladoA === ladoC){
+    } else if (ladoA === ladoB || ladoB === ladoC || ladoA === ladoC) {
         return `Isósceles`
     } else {
         return `Escaleno`
@@ -90,8 +90,18 @@ console.log(classificaTriangulo)
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-
+    array.sort((a, b) => a - b)
+    let novaArray = [];
+    let segundoMaior = array.reverse();
+    novaArray.push(segundoMaior[1], array.reverse()[1]);
+    return novaArray
 }
+
+//     novaArray.push(array.length - 1, array[1]);
+//     novaArray.push(ArrayApela[1]);
+//     let arrOrdemD = ArrayApela.reverse();
+//     novaArray.push(arrOrdemD[1]);
+//     console.log(arraDup.reverse());
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
