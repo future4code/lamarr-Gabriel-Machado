@@ -104,16 +104,19 @@ function retornaChamadaDeFilme(filme) {
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-    const novoUsuario ={
+    const novoUsuario = {
         ...pessoa,
-        nome : "ANÔNIMO"
+        nome: "ANÔNIMO"
     }
     return novoUsuario
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-
+const PessoasAutorizadas = pessoas.filter((pessoas) => {
+    return pessoas.idade > 14 && pessoas.altura > 1.7 && pessoas.idade <= 60
+  })
+  return PessoasAutorizadas
 }
 
 // EXERCÍCIO 13B
