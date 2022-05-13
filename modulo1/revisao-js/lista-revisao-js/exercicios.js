@@ -92,16 +92,9 @@ console.log(classificaTriangulo)
 function retornaSegundoMaiorESegundoMenor(array) {
     array.sort((a, b) => a - b)
     let novaArray = [];
-    let segundoMaior = array.reverse();
-    novaArray.push(segundoMaior[1], array.reverse()[1]);
+    novaArray.push(array.reverse()[1], array.length-5);
     return novaArray
 }
-
-//     novaArray.push(array.length - 1, array[1]);
-//     novaArray.push(ArrayApela[1]);
-//     let arrOrdemD = ArrayApela.reverse();
-//     novaArray.push(arrOrdemD[1]);
-//     console.log(arraDup.reverse());
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
