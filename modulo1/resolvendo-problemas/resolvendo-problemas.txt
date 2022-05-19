@@ -1,0 +1,25 @@
+os 7 passos fundamentais para a resolução de problemas 
+1. ter atenção no enunciado - quando ler o enunciado
+prestar atenção com clateza o que esta sendo pedido
+para entao pensar como executa-lo.
+2. retirar informações relevantes - depois que ler o 
+enunciado separar as palavras chaves para ser usado 
+para fazer o codigo.
+3. pensar entradas e saidas - nesse passo como o nome
+diz pensar quais serão os dados recebidos e como serão
+recebidos. 
+4. fazer um esquema visual - um passo muito importante 
+para conseguir visualizar o codigo com diagramas ou 
+outros exemplos antes de começar o codigo em si.
+5. criar codigo feio - aqui se escolhe a melhor solução 
+que foi pensada no passo anterior.
+6. testar força-bruta - aqui é onde a pessoa fará testes
+para chegar na melhor solução para montar o codigo.
+7. refatorar - na refatoração é onde vai ser moldado o 
+codigo dando a eles bons nomes, separando-os e deixando o 
+codigo mais limpo.
+
+seguindo esse passo a passo é possivel chegar mais rapido
+a uma solução visualizando o codigo antes de escrever e
+usando a logica de programação aprendida sem ter que ficar 
+fazendo testes desnecessarios para ver se o codigo roda.
