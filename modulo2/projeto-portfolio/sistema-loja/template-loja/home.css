@@ -1,0 +1,45 @@
+body {
+    background-color: #ffff;
+}
+
+.inicial {
+    text-transform: capitalize;
+}
+
+.navbar {
+    text-align: center;
+}
+
+.caixa-de-pesquisa {
+    width: 600px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    text-transform: capitalize;
+    background: none;
+    color: #a9a9a9;
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.botao-pesquisar, .botao-adicionar{
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #383838;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.produtos {
+    background-color: grey;
+}
+
+.funcionarios {
+    text-transform: uppercase;
+}

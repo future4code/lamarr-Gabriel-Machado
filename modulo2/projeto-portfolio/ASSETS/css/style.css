@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+}
+
+/*CABEÇALHO*/
+header{
+    background-color: #21a67a;
+}
+
+.home-cabeçalho{
+    color: white;
+    font-size: 300%;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.paragrafo-cabeçalho{
+    color: white;
+    font-size: 200%;
+    margin-left: 15%;
+    padding-bottom: 10px;
+    padding-top: 50px;
+    display: flex;
+}
+
+.menu{
+    width: 100%;
+    display: flex;
+    padding: 10px 10vw;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+}
+
+.item-menu{
+    margin: 0px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 30px;
+    text-transform: capitalize;
+    padding: 0 10px;
+    margin: 0 30px;
+    text-decoration: none;
+    color: white;
+    opacity: 0.5;
+    transition: .5s;
+}
+
+.sobre-mim{
+    margin: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 150%;
+    text-align: justify;
+    color:#21a67a;
+}
+
+.menu-formacao{
+    margin-left:9% ;
+    margin-bottom: 5%;
+    margin-top: 10px;
+    font-size: 150%;
+    text-align: justify;
+    border-style: solid;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.formação{
+    text-align: center;
+    font-size: 150%;
+}
+
+.menu-projetos{
+    text-align: center;
+    background-color: #21a67a;
+}
+
+.projetos{
+    font-size: 250%;
+    text-align: center;
+    color: white;
+    padding-top:15px ;
+}
+
+.projetos-concluidos{
+    display: inline-block;
+    border: 2px solid #21f4ad89;
+    margin: 5%;
+    padding: 2%;
+    background-color: white;
+    border-radius: 4px;
+    color: #21a67a;
+    text-align: center;
+
+}
+
+.projetos-concluidos a {
+    text-decoration: none;
+}
+
+.info-projetos{
+    color: white;
+}
+
+
+.footer-social-container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-link{
+    color: black;
+    margin-left: 20px;
+    text-transform: capitalize;
+    text-decoration: none;
+    width: 20%;
+}
+
+.footer img{
+    width: 40px;
+}
