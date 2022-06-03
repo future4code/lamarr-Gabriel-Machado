@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: orange;
+    flex-direction: row;
+    height: 5vh;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.busca-box {
+    width: 70px;
+    padding: 4px;    
+    color: grey;
+    border: none;
+}
+
+main{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    padding: 2vh;
+    text-align: center;
+    height: auto;
+}
+
+.filmes {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 2vh;
+    column-gap: 1vw;
+    padding: 1vh;
+    justify-items: center;
+    align-items: center;
+}
+
+.exibir {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    padding: 10vh;
+    justify-items: center;
+    align-items: center;
+}
+
+video{
+    padding: 3vh 0;
+    width: 60%
+}
+
+.trailers {
+    border: 1px solid green;
+}
+
+.botao-inicial{
+    text-decoration: none;
+    color: black;
+}
+
+p{
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    padding: 1vh;
+    justify-content: center;
+}
+
+img {
+    display: flex;
+    max-width: 100%;
+}
+    
+h2 {
+    font-size: 100%;
+}
+
+.container-video video, h2{
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+    background-color: grey;
+    height: 4vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
