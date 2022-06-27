@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    display: inherit;
+    border: 1px solid black;
+    align-items: center;
+    padding: 5px;
+    width: 38rem;
+}
+
+.card img{
+    padding: 10px 10px;
+    height: 70px;
+}
+
+.card h4{
+    margin-right: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+ 
