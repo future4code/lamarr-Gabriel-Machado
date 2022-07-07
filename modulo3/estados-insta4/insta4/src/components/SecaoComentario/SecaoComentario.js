@@ -2,7 +2,7 @@ import React from 'react'
 import './style.css'
 
 
-export function SecaoComentario(props) {
+function SecaoComentario(props) {
 	return (
 		<div className='CommentContainer'>
 			<input className='InputComentario'
@@ -14,3 +14,5 @@ export function SecaoComentario(props) {
 		</div>
 	)
 }
+
+export default SecaoComentario
