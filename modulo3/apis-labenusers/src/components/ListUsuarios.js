@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {baseURL} from '../constants/index';
 
-export const listUsuarios = () => {
+export const ListUsuarios = () => {
   const [cadastros, setCadastros] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredUsers, setFilteredUsers] = useState(false);
+
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   const myHeader = {
     headers: {
@@ -10,93 +17,63 @@ export const listUsuarios = () => {
     },
   };
 
-  const url =
-    "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
-
-  // exibir cadastros
-  const exibirCadastros = () => {
+  const getAllUsers = () => {
     axios
-      .get(url, myHeader)
+      .get(`${baseURL}`, myHeader)
       .then((response) => {
         setCadastros(response.data);
       })
-      .catch((erro) => {
-        console.log(erro.response);
+      .catch((err) => {
+        console.log(err.response);
       });
+
+      if(filteredUsers){
+        setFilteredUsers(!filteredUsers);
+      }
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  // get
-  const getData = () => {
+  const searchUsers = () => {
     axios
-      .get(url, myHeader)
+      .get(`${baseURL}/search?name=${search}&email=`, myHeader)
       .then((response) => {
-        console.log(response.data);
         setCadastros(response.data);
+        setFilteredUsers(!filteredUsers);
+        setSearch("");
       })
-      .catch((erro) => {
-        console.log(erro.response);
+      .catch((err) => {
+        console.log(err);
       });
   };
 
-  const delcadastro = cadastros.map((item) => {
-    const del = (e) => {
-      e.preventDefault();
-
+  const delcadastro = (id) => {
       axios
-        .delete(url + "/" + item.id, myHeader)
-        .then(() => {
+        .delete(`${baseURL}/${id}`, myHeader)
+        .then((response) => {
+          console.log(response.data);
           alert("Usuário deletado com sucesso");
-          getData();
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log(err);
           alert("Erro ao deletar usuário");
         });
-    };
-    return (
-      <li key={item.id}>
-        {item.name} - {item.email}
-        <button onClick={del}>Deletar</button>
-      </li>
-    );
-  });
-
-  // const deletarUsu = (id) => {
-//   const del = (e) => {
-//     e.preventDefault();
-
-//   axios.delete(url + '/' + id, myHeader)
-//   .then(() => {
-//     alert ('Usuário deletado com sucesso');
-//     getData();
-//   }).catch(() => {
-//     alert ('Erro ao deletar usuário');
-//   });
-// }}
-
-// const compo = cadastros.map((item) => {
-//   return (
-//     <li key={item.id}>{item.name} - {item.email} 
-//       <button onClick={del}>Deletar</button>
-//     </li>
-//   )})
+  };
 
   return (
   <div>
-    <button onClick={delcadastro}>trocar de tela</button>
-      <br/>
-      {cadastros.map((nome, index) => {
+      <h1>Lista de Usuários</h1>
+      {cadastros.map((item) => {
         return (
-          <div key={index}>
-            <p>{nome.name}</p>
-            <p>{nome.email}</p>
-            <button>X</button>
+          <div key={item.id}>
+            <li>{item.name}</li>
+            <button onClick={() => delcadastro(item.id)}>deletar usuario</button>
           </div>
-        )}
-      )}
+        )})}
+      <h3>Busca por usuarios:</h3>
+      <input placeholder='Busca por usuários'
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+          />
+      {filteredUsers ? <button onClick={() => getAllUsers()}>Voltar</button> : <button onClick={() =>searchUsers(search)}>Buscar Usuários</button> }
   </div>
   );
 };
