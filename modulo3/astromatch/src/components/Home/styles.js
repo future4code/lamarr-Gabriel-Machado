@@ -10,13 +10,18 @@ export const MainCard = styled.main`
 `;
 export const ProfileDiv = styled.div`
   margin: 20px;
-  border: 2px solid black;
-  background-color: #b71c1c;
+  div{
+    border: 1px solid black;
+    margin-top: -30px;
+    backdrop-filter: blur(24px);
+    border-radius: 0px 0px 12px 12px;
+    padding: 5px;
+    border: none;
+  }
   h1{
     font-size: 1.5rem;
     font-weight: 700;
     color: black;
-    margin-top: 10px;
     margin-bottom: 10px;
   }
   p{
@@ -29,6 +34,7 @@ export const ProfileDiv = styled.div`
 export const ProfileImg = styled.img`
   width: 100%;
   height: 40vh;
+  border-radius: 12px;
 `;
 export const FooterCard = styled.footer`
   background-color: white;
@@ -38,6 +44,7 @@ export const FooterCard = styled.footer`
   justify-content: space-around;
   align-items: center;
   padding: 20px;
+  margin-top: 20px;
   img{
     cursor: pointer;
     width: 60px;
@@ -48,5 +55,11 @@ export const FooterCard = styled.footer`
     &:hover{
       opacity: 0.5;
     }
+    &:active {
+    transform: scale(0.93);
+/*   diminui a imagem */
+    transition: transform .3s;
+/*   velocidade do transform */
+}
   }
 `;

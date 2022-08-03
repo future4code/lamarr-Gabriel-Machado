@@ -6,15 +6,11 @@ export const MainListCard = styled.main`
   width: 100%;
 `;
 export const ListDIv = styled.div`
-  border: 2px solid black;
-  background-color: #b71c1c;
-  height: 55vh;
-  width: 90%;
   display: flex;
   flex-direction: column;
   padding-right: 309px;
   margin: 5px;
-  margin-left: -159px;
+  margin-left: 3px;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;

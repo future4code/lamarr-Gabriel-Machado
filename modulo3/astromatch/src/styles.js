@@ -9,8 +9,8 @@ export const Container = styled.div`
   align-items: center;
 `;
 export const CardHome = styled.div`
-  padding: 189px;
-  width: 300px;
+  padding: 15px;
+  width: 378px;
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -22,14 +22,8 @@ export const CardHome = styled.div`
   margin: 48px auto 0;
 `;
 export const HeaderCard = styled.header`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  height: 26vh;
-  padding-top: 10px;
   align-items: center;
   img {
     width: 60px;

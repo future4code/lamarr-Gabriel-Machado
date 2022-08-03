@@ -47,10 +47,13 @@ export const Home = () => {
     <MainCard>
       <ProfileDiv>
         <ProfileImg src={profile.photo} />
-        <h1>
-          {profile.name}, {profile.age}
-        </h1>
-        <p>{profile.bio}</p>
+        <div>
+          <h1>
+            {console.log(profile)}
+            {profile.name}, {profile.age}
+          </h1>
+          <p>{profile.bio}</p>
+        </div>
       </ProfileDiv>
       <FooterCard>
         <img
