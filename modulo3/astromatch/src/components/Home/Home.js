@@ -10,37 +10,41 @@ export const Home = () => {
     getProfileToChoose();
   }, []);
 
+  const url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-machado";
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
   // Retorna um perfil que ainda não foi visto
   const getProfileToChoose = () => {
     axios
-      .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/julia-ailton/person"
-      )
+      .get(url + '/person')
       .then((response) => {
         setProfile(response.data.profile);
-        console.log(response.data.profile);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        alert("Erro ao buscar perfil");
       });
   };
+  //Recebe um id e uma escolha (choice). A escolha é a opção do usuário no momento do swipe. Deve ser true ou false.
   const chooseProfile = (choice) => {
-    const url =
-      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/julia-ailton/choose-person";
     const body = {
       id: profile.id,
       choice: choice,
     };
-    axios.post(url, body).then((res) => {
-      console.log(res.data);
-      getProfileToChoose();
-    });
-  };
-  const onClickUnlike = () => {
-    chooseProfile(false);
-  };
-  const onClickLike = () => {
-    chooseProfile(true);
+    axios
+      .post(url + '/choose-person', body, headers)
+      .then((res) => {
+        if (res.data.isMatch === true) {
+          alert("Vocês são compatíveis!");
+          getProfileToChoose();
+        }
+        getProfileToChoose();
+      })
+      .catch(() => {
+        alert("Erro ao escolher perfil");
+      });
   };
 
   return (
@@ -49,7 +53,6 @@ export const Home = () => {
         <ProfileImg src={profile.photo} />
         <div>
           <h1>
-            {console.log(profile)}
             {profile.name}, {profile.age}
           </h1>
           <p>{profile.bio}</p>
@@ -58,13 +61,13 @@ export const Home = () => {
       <FooterCard>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtgdROg0b0Y5jZkOSOjEnZK1_VyZ9QEUQ03Vi5AP5IHeFqvSf5Qn9TKtogOGF2VRrVb9U&usqp=CAU"
-          onClick={onClickUnlike}
           alt="deslike"
+          onClick={() => chooseProfile(false)}
         />
         <img
           src="https://cdn-icons-png.flaticon.com/512/7950/7950400.png"
           alt="like"
-          onClick={onClickLike}
+          onClick={() => chooseProfile(true)}
         />
       </FooterCard>
     </MainCard>

@@ -15,10 +15,11 @@ export const Match = () => {
     getMatches();
   }, []);
 
+  // Retorna um array de perfis que deram match com você.
   const getMatches = () => {
     axios
       .get(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/julia-ailton/matches"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-machado/matches"
       )
       .then((res) => {
         console.log(res.data.matches);
@@ -32,7 +33,7 @@ export const Match = () => {
   const clear = () => {
     axios
       .put(
-        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/julia-ailton/clear"
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/gabriel-machado/clear"
       )
       .then((res) => {
         console.log(res);
@@ -47,8 +48,8 @@ export const Match = () => {
     <MainListCard>
       <ListDIv>
         <h1>Matches</h1>
-        {matches &&
-          matches?.map((dado) => {
+
+        {matches.map((dado) => {
             return (
               <div key={dado.id}>
                 <MatchRow>
@@ -58,6 +59,7 @@ export const Match = () => {
               </div>
             );
           })}
+
       </ListDIv>
       <FooterList>
         <button onClick={clear}>Limpar Matchs</button>

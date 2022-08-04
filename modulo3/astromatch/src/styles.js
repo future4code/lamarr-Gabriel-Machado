@@ -20,6 +20,9 @@ export const CardHome = styled.div`
   border-radius: 12px;
   background-color: white;
   margin: 48px auto 0;
+  @media (min-width: 374px) and (max-width: 425px){
+   width: 331px;
+  }
 `;
 export const HeaderCard = styled.header`
   display: flex;
