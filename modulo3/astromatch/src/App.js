@@ -29,7 +29,7 @@ function App() {
     <Container>
       <CardHome>
         <HeaderCard>
-          <img src="https://cdn-icons.flaticon.com/png/512/2626/premium/2626290.png?token=exp=1659462929~hmac=e4bc847e7c91686c21f6c45ec8f7b3cc" onClick={goToHomePage} 
+          <img src="https://cdn-icons-png.flaticon.com/512/3884/3884621.png" onClick={goToHomePage} 
           alt="home"
           />
           <h2>ASTROMATCH</h2>
