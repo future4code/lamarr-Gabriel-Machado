@@ -1,39 +1,36 @@
+import React, { useState }from "react";
 import axios from "axios";
-import React, { useState } from "react";
+import {baseURL} from '../constants/index';
 
-const criarCadastros = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+export const CriarCadastros = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
-  //post
   const body = {
-    name: name,
-    email: email,
+    "name": name,
+    "email": email,
   };
 
   const myHeader = {
     headers: { 
       Authorization: "gabriel-machado-lamarr"
-  }}
+  }
+}
 
-  
-const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users';
-
-  const postData = (e) => {
-    e.preventDefault();
+  const criarUser = () => {  
     axios
-      .post(url, body, myHeader)
-      .then(() => {
+      .post(`${baseURL}`, body, myHeader)
+      .then((response) => {
+        console.log(response.data);
+        setEmail(response.data);
+        setName(response.data);
         alert("Usuário cadastrado com sucesso");
-        getData();
       })
-      .catch(() => {
+      .catch((err) => {
         alert("Erro ao cadastrar usuário");
-      });
-
-    setEmail("");
-    setName("");
-  };
+        console.log(err);
+      })
+  }
 
   return (
     <div>
@@ -47,9 +44,7 @@ const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button onClick={postData}>Criar Usuário</button>
+      <button onClick={criarUser}>Criar Usuário</button>
     </div>
   );
 };
-
-export default criarCadastros;

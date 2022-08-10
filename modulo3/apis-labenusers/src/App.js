@@ -1,15 +1,20 @@
-import React from 'react';
-import './App.css';
-import CriarCadastros from './components/CriarCadastros';
-import { ListUsuarios } from './components/ListUsuarios';
+import React, { useState } from "react";
+import { CriarCadastros } from "./components/CriarCadastros";
+import { ListUsuarios } from "./components/ListUsuarios";
 
-function App() {
+const App = () => {
+  const [screen, setScreen] = useState("criar");
+
+  const changeScreen = () => {
+    setScreen(screen === "criar" ? "list" : "criar");
+  };
+
   return (
     <div>
-      <CriarCadastros/>
-      <ListUsuarios/>
+      <button onClick={changeScreen}>Trocar de tela</button>
+      {screen === "criar" ? <CriarCadastros /> : <ListUsuarios />}
     </div>
   );
-}
+};
 
 export default App;
