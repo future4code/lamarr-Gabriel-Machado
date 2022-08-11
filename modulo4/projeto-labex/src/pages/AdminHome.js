@@ -10,7 +10,7 @@ export const AdminHome = () => {
     <div>
       <h1>Painel administrativo</h1>
 
-      <button onClick={() => myRoute.goToBack(navigate)}>voltar</button>
+      <button onClick={() => navigate(-1)}>voltar</button>
       <button onClick={() => myRoute.goToCreateTrip(navigate)}>criar viagens</button>
       <button>logout</button>
 
