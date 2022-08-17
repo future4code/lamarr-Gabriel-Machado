@@ -18,6 +18,7 @@ export const useGetTrips = () => {
     return trips
 }
 
+// aplicar para uma viagem.
 export const applyToTrips = (data) => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/aluno/trips/${data.trip}/apply`
 
@@ -36,4 +37,20 @@ export const applyToTrips = (data) => {
     }).catch(err => {
         console.log(err)
     } )
+}
+
+// cria uma nova viagem.
+export const createTrip = (body, clear) => {
+  const URL = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/gabriel-machado-lamarr/trips/'
+  const headers = {
+    headers: { auth: localStorage.getItem('token') }
+  }
+
+  axios
+    .post(URL, body, headers)
+    .then(() => {
+      alert('Viagem adicionada com sucesso!')
+      clear()
+    })
+    .catch(err => console.log(err))
 }
