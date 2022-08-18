@@ -2,13 +2,15 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForms } from '../hooks/useForms'
 import axios from 'axios'
+import { useProtected } from '../hooks/useProtected'
 
 export const Login = () => {
 
+  useProtected()
   const navigate = useNavigate()
 
   const { form, onChange, clear } = useForms({
-    name: '',
+    email: '',
     password: '',
   })
 
@@ -20,7 +22,7 @@ export const Login = () => {
     }
 
     axios
-      .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:gabriel-machado-lamarr/login', body)
+      .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:gabriel/login', body)
       .then(response => {
         localStorage.setItem('token', response.data.token)
         navigate('/admin/trips/list')

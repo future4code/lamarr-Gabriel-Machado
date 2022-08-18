@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as myRoute from '../components/Coodinator'
+import { useProtected } from '../hooks/useProtected'
 
 export const AdminHome = () => {
 
+  useProtected()
   const navigate = useNavigate()
 
   return (
