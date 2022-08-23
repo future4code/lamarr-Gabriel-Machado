@@ -1,41 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useParams, useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as myRoute from '../components/Coodinator'
 import { useProtected } from '../hooks/useProtected'
+import { baseURL } from '../services/api'
+import { useRequestDat } from '../hooks/useRequestData'
+import { useParams } from "react-router-dom";
+
 
 export const TripDetails = () => {
-
-  const [trip, setTrip] = useState({})
-
   useProtected()
-  const navigate = useNavigate()
-  const params = useParams()
+  const navigate = useNavigate() 
 
-  const headers = {
-    headers: { auth: localStorage.getItem('token') }
+  const params = useParams();
+
+  const data = useRequestDat(`${baseURL}trip/${params.id}`) 
+
+
+const TripDetailsCard = () => {
+  
+    return (
+      <div>
+        {data && (
+          <div>
+            <p> Nome: {data.name} </p>
+            <p> Descrição: {data.description} </p>
+            <p> Planeta: {data.planet} </p>
+            <p> Duração: {data.durationInDays} </p>
+            <p> Data: {data.date} </p>
+          </div>
+        )}
+      </div>
+    )
   }
-
-  const getTripDetails = () => {
-    const URL = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/gabriel/trip/${params.id}`
-
-    axios
-      .get(URL, headers)
-      .then(response => {
-        setTrip(response.data.trip)
-      })
-      .catch(err => {
-        alert(err.response.data.message)
-      })
-  }
-
-  useEffect(() => {
-    getTripDetails()
-  }, [trip])
 
   return (
     <div>
-      <h1>informações da viagem</h1>
+        <h1>Viagens</h1>
+          <TripDetailsCard />
 
       <button onClick={() => myRoute.goToBack(navigate)}>voltar</button>
       

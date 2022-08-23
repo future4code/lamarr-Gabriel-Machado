@@ -1,33 +1,58 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import * as myRoute from '../components/Coodinator'
-import { useProtected } from '../hooks/useProtected'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import * as myRoute from "../components/Coodinator";
+import { useProtected } from "../hooks/useProtected";
+import { StyleAdmin, Conteudo, ListViagem, Buttons } from "../styles/admin";
+import { deleteTrip } from "../services/RequestsApi";
+import { baseURL } from "../services/api";
+import { useRequestData } from '../hooks/useRequestData'
 
 export const AdminHome = () => {
+  
+  useProtected();
+  const navigate = useNavigate();
+  
+  const [data, isLoading] = useRequestData(`${baseURL}trips`)
 
-  useProtected()
-  const navigate = useNavigate()
+  console.log(data)
+
+
+  const logout = () => {    
+    navigate('/')
+  }
+
+  const viagens = data&&data.trips.map((trip) => {
+        return (
+          <ListViagem key={trip.id}>
+            <div onClick={() => {
+                navigate(`/admin/trips/${trip.id}`);
+              }}> {trip.name}
+            </div>
+
+            <button onClick={() => deleteTrip(trip.id)}>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3757/3757041.png"
+                alt="Lixeira"
+              />
+            </button>
+          </ListViagem>
+        );
+      })
 
   return (
-    <div>
+    <StyleAdmin>
       <h1>Painel administrativo</h1>
-
-      <button onClick={() => navigate(-1)}>voltar</button>
-      <button onClick={() => myRoute.goToCreateTrip(navigate)}>criar viagens</button>
-      <button>logout</button>
-
-      <button onClick={() => myRoute.goToTripDetails(navigate)}>
-        <p>teste</p> <button>excluir</button>
-      </button>
-
-      <button onClick={() => myRoute.goToTripDetails(navigate)}>
-        <p>teste 2</p> <button>excluir</button>
-      </button>
-
-      <button onClick={() => myRoute.goToTripDetails(navigate)}>
-        <p>teste 3</p> <button>excluir</button>
-      </button>
-
-    </div>
-  )
-}
+      <Conteudo>
+        <Buttons onClick={() => navigate('/')}>voltar</Buttons>
+        <Buttons onClick={() => myRoute.goToCreateTrip(navigate)}>
+          criar viagens
+        </Buttons>
+        <Buttons onClick={logout}>logout</Buttons>
+      </Conteudo>
+      <div>
+        {isLoading&&"Carregando!..."}
+        {!isLoading&&data&&data.trips&&viagens}
+        {!isLoading&&data&&!data.trips&&"Ops! Algo deu errado!"}</div>
+    </StyleAdmin>
+  );
+};

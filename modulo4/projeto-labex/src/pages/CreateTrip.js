@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useForms } from '../hooks/useForms'
+import { useForm } from '../hooks/useForm'
 import { createTrip } from '../services/RequestsApi'
 import { useProtected } from '../hooks/useProtected'
 
@@ -9,7 +9,7 @@ export const CreateTrip = () => {
   useProtected()
   const navigate = useNavigate()
 
-  const { form, onChange, clear } = useForms({
+  const { form, onChange, clear } = useForm({
     name: '',
     description: '',
     data: '',

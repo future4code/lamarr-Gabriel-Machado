@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState } from "react"
 
-export const useForms = initialState => {
+
+export const useForm = (initialState) => {
   const [form, setForm] = useState(initialState)
 
   const onChange = event => {
@@ -12,6 +13,6 @@ export const useForms = initialState => {
     setForm(initialState)
   }
 
-  return { form, onChange, clear }
+  return [ form, onChange, clear ]
 }
 

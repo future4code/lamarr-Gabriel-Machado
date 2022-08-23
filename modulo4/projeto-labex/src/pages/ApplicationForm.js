@@ -1,13 +1,14 @@
 import React, { useState  } from 'react'
-import { useGetTrips, applyToTrips } from '../services/RequestsApi'
+import { applyToTrips } from '../services/RequestsApi'
 import { useNavigate } from 'react-router-dom'
+import { useRequestData } from '../hooks/useRequestData'
+import { baseURL } from '../services/api'
 
 export const ApplicationForm = () => {
-
-  const [data, setData] = useState('')
-  
   const navigate = useNavigate()
-  const trips = useGetTrips()
+  
+  const [data, setData] = useState('')
+  const trips = useRequestData(`${baseURL}trips`)
 
   return (
     <div>

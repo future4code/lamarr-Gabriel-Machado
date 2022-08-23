@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
-import { useGetTrips } from '../services/RequestsApi'
+import { useRequestData } from '../hooks/useRequestData'
+import { baseURL } from '../services/api'
 
 export const ListTrips = () => {
 
   const navigate = useNavigate()
-  const trips = useGetTrips()
+  
+  const trips = useRequestData(`${baseURL}trips`)
 
 
   const mapear = trips.map(trips => {

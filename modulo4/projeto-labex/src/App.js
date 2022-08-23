@@ -5,10 +5,6 @@ function App() {
   return (
     <div>
       <Rotas />
-
-      {/* get trips
-      apply to trips */}
-
     </div>
   );
 }
