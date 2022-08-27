@@ -5,6 +5,7 @@ import { useProtected } from '../hooks/useProtected'
 import { baseURL } from '../services/api'
 import { useRequestDat } from '../hooks/useRequestData'
 import { useParams } from "react-router-dom";
+import { ListaDeViagens, Buttons, Textoh1, Container } from '../styles/globalStyles'
 
 
 export const TripDetails = () => {
@@ -21,32 +22,32 @@ const TripDetailsCard = () => {
     return (
       <div>
         {data && (
-          <div>
+          <ListaDeViagens>
             <p> Nome: {data.name} </p>
             <p> Descrição: {data.description} </p>
             <p> Planeta: {data.planet} </p>
             <p> Duração: {data.durationInDays} </p>
             <p> Data: {data.date} </p>
-          </div>
+          </ListaDeViagens>
         )}
       </div>
     )
   }
 
   return (
-    <div>
-        <h1>Viagens</h1>
+    <Container>
+        <Textoh1>Informações da Viagem</Textoh1>
           <TripDetailsCard />
 
-      <button onClick={() => myRoute.goToBack(navigate)}>voltar</button>
+      <Buttons onClick={() => myRoute.goToBack(navigate)}>voltar</Buttons>
       
-      <p>candidatos pendentes...</p>
+      {/* <p>candidatos pendentes...</p>
 
       <div>
-        <p>info sobre os candidatos</p>
-        <button>aprovar</button>
-        <button>reprovar</button>
-      </div>
-    </div>
+        <Textoh1>info sobre os candidatos:</Textoh1>
+        <Buttons>aprovar</Buttons>
+        <Buttons>reprovar</Buttons>
+      </div> */}
+    </Container>
   )
 }

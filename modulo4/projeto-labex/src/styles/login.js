@@ -38,7 +38,7 @@ export const StyleLogin = styled.p`
     color: white;
     display: flex;
     justify-content: center;
-    }
+  }
 
   div {
     display: -webkit-box;
@@ -47,24 +47,30 @@ export const StyleLogin = styled.p`
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+
+    label {
+      color: white;
+      font-size: 20px;
+      margin-left: -45px;
+    }
   }
 
   form {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  gap: 0.5rem;
-  max-width: 40rem;
-}
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 0.5rem;
+    max-width: 40rem;
+  }
 
-input {
-  border: none;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.74);
-  border-radius: 10px;
-  font-size: 20px;
-}
-
+  input {
+    border: none;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.74);
+    border-radius: 10px;
+    font-size: 20px;
+    margin-right: 20px;
+  }
 `;
 
 export const Conteudo = styled.div`

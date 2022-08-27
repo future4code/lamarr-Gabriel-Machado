@@ -1,33 +1,39 @@
-import { useNavigate } from 'react-router-dom'
-import { useRequestData } from '../hooks/useRequestData'
-import { baseURL } from '../services/api'
+import { useNavigate } from "react-router-dom";
+import { useGetTrips } from "../services/RequestsApi";
+import {
+  ListaDeViagens,
+  Buttons,
+  Textoh1,
+  Container,
+  Conteudo
+} from "../styles/globalStyles";
 
 export const ListTrips = () => {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  
-  const trips = useRequestData(`${baseURL}trips`)
+  const trips = useGetTrips();
 
-
-  const mapear = trips.map(trips => {
+  const mapear = trips.map((trips) => {
     return (
-      <div key={trips.id}>
+      <ListaDeViagens key={trips.id}>
         <p>{trips.name}</p>
-        <button onClick={() => navigate(`/admin/trips/${trips.id}`)}>Ver detalhes</button>
-      </div>
-    )
-  })
+        <p>{trips.planet}</p>
+        <p>{trips.date}</p>
+        <p>{trips.description}</p>
+      </ListaDeViagens>
+    );
+  });
 
   return (
-    <div>
-
-      <button onClick={()=> navigate(-1)}>voltar</button>
-
-      <button onClick={() => navigate('/trips/application')}>inscreva-se</button>
-      <h1>lista de viagens</h1>
+    <Container>
+      <Conteudo>
+        <Buttons onClick={() => navigate(-1)}>voltar</Buttons>
+        <Buttons onClick={() => navigate("/trips/application")}>
+          inscrever-se
+        </Buttons>
+      </Conteudo>
+      <Textoh1>lista de viagens</Textoh1>
       {mapear}
-    </div>
-  )
-}
-
-
+    </Container>
+  );
+};

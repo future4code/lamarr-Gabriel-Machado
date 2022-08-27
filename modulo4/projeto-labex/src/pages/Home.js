@@ -20,8 +20,8 @@ const Home = () => {
         </button>
         <button
           onClick={() => {
-            myRoute.goToListTrips(navigate);
-          }}
+            navigate('/trips/list')
+        }}
         >
           Ir para Viagens
         </button>

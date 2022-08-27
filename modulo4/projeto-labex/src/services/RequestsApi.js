@@ -1,4 +1,6 @@
 import axios from "axios";
+import { baseURL } from "./api";
+import { useState, useEffect } from "react";
 
 // aplicar para uma viagem.
 export const applyToTrips = (data, baseURL) => {
@@ -56,3 +58,24 @@ export const deleteTrip = (id, baseURL) => {
       alert(error.response.data.message);
     });
 };
+
+// pegar viagens
+
+export function useGetTrips() {
+  const [trips, setTrips] = useState([])
+  const URL = `${baseURL}trips`
+
+  useEffect(() => {
+    axios
+      .get(URL)
+      .then(response => {
+        setTrips(response.data.trips)
+      })
+      .catch(error => {
+        alert(error.response.data.message)
+        console.log(error)
+      })
+  }, [URL])
+
+  return trips
+}
