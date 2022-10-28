@@ -70,20 +70,37 @@ app.post('/adicionar', (req: Request, res: Response) => {
 })
 
 //6
-
 app.put('/atualizar/:id', (req: Request, res: Response) => {
     const id:Number = Number(req.params.id);
-   let newCompleted = req.body.completed
-   const change = afazeres.find((task) => {
-      if(task.id == id) {
-         return task.completed = newCompleted;
-      }})
-   
-   res.status(200).json({
-      "mensagem": "Tarefa atualizada com sucesso",
-      change
-  })
+    let newCompleted:boolean = req.body.completed
+    
+    const afazerAtualizado = afazeres.findIndex((i) => i.id === id)
+
+    afazeres[afazerAtualizado].completed = newCompleted
+
+    res.status(200).send(afazeres[afazerAtualizado])
+
 })
+
+//7
+app.delete('/deletar/:id', (req: Request, res: Response) => {
+    const id:number = Number(req.params.id)
+
+    const afazerDeletado = afazeres.findIndex((i) => i.id === id)
+
+    afazeres.splice(afazerDeletado, 1)
+ 
+    res.status(200).send(afazerDeletado)
+ })
+
+ //8
+ app.get('/afazeres/:id', (req: Request, res: Response) => {
+    const id:number = Number(req.params.id)
+
+    const afazer = afazeres.find((i) => i.id === id)
+
+    res.status(200).send(afazer)
+    })
 
 // -------------------PORTA PARA VERIFICAR O SERVIDOR-------------
 
