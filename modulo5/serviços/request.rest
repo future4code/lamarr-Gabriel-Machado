@@ -1,0 +1,12 @@
+GET https://localhost:3003/buscarcep/69919832
+Content-Type: application/json
+
+{
+    "cep": "69919832",
+    "logradouro": "Rua 1",
+    "bairro": "Bosque",
+    "localidade": "Rio Branco",
+    "uf": "AC",
+}
+
+

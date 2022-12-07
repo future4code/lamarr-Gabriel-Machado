@@ -1,0 +1,28 @@
+{
+  "name": "template-intro-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "quest1": "tsc && node ./build/exercicio1.js",
+    "test-try": "tsc && node ./build/testeTry.js",
+    "start": "tsc && node build/index.js",
+    "dev": "ts-node-dev ./src/index.ts"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/node": "^17.0.45",
+    "cors": "^2.8.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@types/knex": "^0.16.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "readline-sync": "^1.4.10"
+  }
+}
