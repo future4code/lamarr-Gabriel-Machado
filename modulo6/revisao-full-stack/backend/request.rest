@@ -1,0 +1,46 @@
+### Test    
+GET http://localhost:3003/ping
+
+### Create a new Client
+POST http://localhost:3003/client
+Content-Type: application/json
+
+{
+    "name":"Maria Prado"
+}
+
+### Return all Clients
+GET http://localhost:3003/clients
+Content-Type: application/json
+
+### Return all Products
+GET http://localhost:3003/products
+Content-Type: application/json
+
+### Return stock
+GET http://localhost:3003/stock
+Content-Type: application/json
+
+### creat order
+POST http://localhost:3003/order
+Content-Type: application/json
+
+{
+    "fk_client": 1,
+    "delivery_date":"2023-01-04",
+    "products":[
+        {
+            "id":1,
+            "qty":10
+        },
+        {
+            "id":2,
+            "qty":1000
+        },
+        {
+            "id":3,
+            "qty":10
+        }
+    ]
+}
+
