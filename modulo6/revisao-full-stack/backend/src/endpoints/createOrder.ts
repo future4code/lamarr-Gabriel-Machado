@@ -35,7 +35,7 @@ export const createOrder =async (req: Request, res: Response) => {
             //adicionba registro
             await  connection("Case_Orders").insert(
                 {
-                    order_date:new Date().toISOString().slice(0,10),
+                    order_data:new Date().toISOString().slice(0,10),
                     delivery_date,
                     qty:product.qty,
                     fk_client,

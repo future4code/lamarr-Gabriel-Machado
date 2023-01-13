@@ -6,7 +6,6 @@ export const useRequestData = (url, headers) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [up,setUp]=useState(false)
-  // console.log(update)
 
   useEffect(() => {
     console.log("foi !!!")
@@ -20,7 +19,7 @@ export const useRequestData = (url, headers) => {
         setError(err);
         setIsLoading(false)
       })
-  }, [up])
+  }, [headers, up, url])
 
   return [data, isLoading, error,up,setUp]
 }
