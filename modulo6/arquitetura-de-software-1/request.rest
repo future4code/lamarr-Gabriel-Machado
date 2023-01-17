@@ -1,0 +1,19 @@
+###Endpoint de teste 
+GET http://localhost:3003/ping
+
+###Endpoint de cadastro de usuário
+POST http://localhost:3003/createUser
+Content-Type: application/json
+
+{
+  "name": "Pam Beasly",
+  "email": "pam@dundermifflin.com",
+  "password": "fa8s7e6fia7se6ga8i67gf9a7se6f8a7s6e5gaes"
+}
+
+### retorna todos os usuarios
+GET http://localhost:3003/users
+
+### deleta um usuario
+DELETE http://localhost:3003/deleteUser/1673987785549
+
