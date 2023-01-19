@@ -2,9 +2,21 @@ POST http://localhost:3003/user/create
 Content-Type: application/json
 
 {
-    "name": "teste",
-    "email": "email@email.com",
+    "name": "teste2",
+    "email": "email@email2.com",
     "password": "23432535"
 }
 
+### pegar todos os usuarios
+GET http://localhost:3003/user/allusers
 
+### criar um filme
+POST http://localhost:3003/movie/movie
+Content-Type: application/json
+
+{
+    "title": "filme3",
+    "description": "filme3",
+    "duration_in_minutes": 120,
+    "year_of_release": 2019
+}

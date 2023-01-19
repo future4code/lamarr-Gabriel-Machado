@@ -13,4 +13,12 @@ export class UserDatabase extends BaseDatabase {
       })
       .into(UserDatabase.TABLE_NAME);
   }
+
+  async getAllUsers(): Promise<any> {
+    const result = await UserDatabase.connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME);
+
+    return result;
+  }
 }
