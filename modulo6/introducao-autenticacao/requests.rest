@@ -1,0 +1,27 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Norman", 
+   "nickname": "Green", 
+   "email": "osbourne@parker.com" ,
+   "password": "ihatepeter"
+}
+### 
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "osbourne@oscorp.com" ,
+   "password": "ihatepeter"
+}
+###
+
+PUT http://localhost:3003/user/edit
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNjODAwYmI3LWE4OTEtNGViYi1iYzkwLTNhYTJlZWFjMzUwMiIsImlhdCI6MTY2NzI2MDE0MSwiZXhwIjoxNjY3MjYzNzQxfQ.Rh77v2hBwGgKfcCmZk0nVDiGJHKM1VrSgC7Jv9h4pjo
+Content-Type: application/json
+
+{
+   "name": "Harry Osbourne", 
+   "nickname": "duendao" 
+}
