@@ -1,0 +1,15 @@
+{
+  "name": "complexidade-de-algoritmos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "ts-node-dev ./src/index.ts",
+    "start": "node ./build/index.js",
+    "build": "tsc" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
